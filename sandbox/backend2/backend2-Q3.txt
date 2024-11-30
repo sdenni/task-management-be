@@ -1,0 +1,7 @@
+Q: Tampilkan daftar nama dan gaji (salary) dari karyawan yang bekerja di departemen "Sales" atau
+"Marketing"
+
+A:
+```
+SELECT e.name AS nama, e.salary AS gaji FROM employees e WHERE e.department = 'Sales'
+```

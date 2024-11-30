@@ -1,0 +1,6 @@
+Q: Tampilkan 5 karyawan dengan total penjualan (sales) tertinggi dari tabel "employees" dan "sales_data"
+
+A:
+```
+SELECT e.employee_id, e.name,SUM(s.sales) AS sumsales FROM sales s JOIN employees e ON s.employee_id = e.employee_id GROUP BY s.employee_id ORDER BY sumsales LIMIT 5;
+```

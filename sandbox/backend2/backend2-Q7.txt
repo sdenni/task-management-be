@@ -1,0 +1,22 @@
+Q: Tampilkan nama dan total penjualan (sales) dari setiap karyawan, bersama dengan peringkat (ranking)
+masing-masing karyawan berdasarkan total penjualan. Peringkat 1 adalah karyawan dengan total
+penjualan tertinggi
+
+A:
+```
+SELECT
+  e.employee_id,
+  e.name,
+  SUM(s.sales) AS sales,
+  RANK() OVER (
+    ORDER BY
+      SUM(s.sales) DESC
+  ) AS ranking
+FROM
+  sales s
+  JOIN employees e ON s.employee_id = e.employee_id
+GROUP BY
+  e.employee_id
+ORDER BY
+  ranking;
+```

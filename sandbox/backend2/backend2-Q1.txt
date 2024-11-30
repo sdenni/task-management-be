@@ -1,0 +1,6 @@
+Q: Tampilkan seluruh data dari tabel "employees"
+
+A:
+```
+SELECT * FROM employees
+```

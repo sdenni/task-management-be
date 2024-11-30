@@ -1,0 +1,7 @@
+Q: Hitung rata-rata gaji (salary) dari karyawan yang bergabung (joined) dalam 5 tahun terakhir (berdasarkan
+kolom "joined_date")
+
+A:
+```
+SELECT AVG(e.salary) AS rata_rata_gaji FROM employees e WHERE e.joined_date >= CURDATE() - INTERVAL 5 YEAR;
+```

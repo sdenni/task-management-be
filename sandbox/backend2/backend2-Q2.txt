@@ -1,0 +1,6 @@
+Q: Berapa banyak karyawan yang memiliki posisi pekerjaan (job title) "Manager"?
+
+A:
+```
+SELECT COUNT(e.employee_id) AS count_karyawan FROM employees e WHERE e.job_title = 'Manager'
+```

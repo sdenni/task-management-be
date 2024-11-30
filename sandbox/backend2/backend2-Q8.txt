@@ -1,0 +1,26 @@
+Q: Buat sebuah stored procedure yang menerima nama departemen sebagai input, dan mengembalikan
+daftar karyawan dalam departemen tersebut bersama dengan total gaji (salary) yang mereka terima 
+
+A:
+```
+DELIMITER $$
+
+CREATE PROCEDURE getEmployeesByDepartment(
+    IN dep_param VARCHAR(255)
+)
+BEGIN
+    SELECT 
+        e.employee_id, 
+        e.name, 
+        SUM(e.salary) AS total_salary
+    FROM employees e
+    WHERE e.department = dep_param
+    GROUP BY e.employee_id;
+END $$
+
+DELIMITER ;
+```
+
+```
+CALL getEmployeesByDepartment("Marketing");
+```

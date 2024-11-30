@@ -1,0 +1,7 @@
+Q: Tampilkan nama, gaji (salary), dan rata-rata gaji (salary) dari semua karyawan yang bekerja di departemen
+yang memiliki rata-rata gaji lebih tinggi dari gaji rata-rata di semua departemen
+
+A:
+```
+SELECT e.name, e.salary FROM employees e WHERE e.department IN (SELECT subq1.department FROM (SELECT eref1.department, AVG(eref1.salary) AS avg_department FROM employees eref1 GROUP BY eref1.department) AS subq1 WHERE subq1.avg_department > (SELECT AVG(eref2.salary) FROM employees eref2))
+```
